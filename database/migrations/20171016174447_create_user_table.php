@@ -54,7 +54,6 @@ class CreateUserTable extends AbstractMigration
               ->addColumn('create_on','datetime')
               ->addColumn('create_by','integer')
               ->save();
-
     }
 
     /**

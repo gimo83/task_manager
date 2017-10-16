@@ -17,7 +17,7 @@ environments:
     development:
         adapter: sqlite
         host: localhost
-        name: %%PHINX_CONFIG_DIR%%/database/test.db
+        name: %%PHINX_CONFIG_DIR%%/database/dev.db
         user: 
         pass: 
         port: 
