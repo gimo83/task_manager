@@ -17,6 +17,13 @@ return [
         ],
 
         // Database
+        'db' =>[
+            'driver' => 'sqlite',
+            'host' => 'localhost',
+            'database' => 'database/test.db',
+            'prefix'    => '',
+        ],
+        /*
         'db' => [
             'driver' => 'mysql',
             'host' => 'localhost',
@@ -27,5 +34,6 @@ return [
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
         ],
+        */
     ],
 ];

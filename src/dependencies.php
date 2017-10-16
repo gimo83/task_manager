@@ -20,10 +20,18 @@ $container['logger'] = function ($c) {
 
 //database
 $container['db'] = function ($c) {
-	$settings = $c->get('setting')['db'];
+	$settings = $c->get('settings')['db'];
 	$capsule = new \Illuminate\Database\Capsule\Manager;
-	$capsule->addConnection($setting);
-	
+	$capsule->addConnection($settings);
+
+	$capsule->setAsGlobal();
+    $capsule->bootEloquent();
 
 	return $capsule;
-}
+};
+
+
+// Flash messages
+$container['flash'] = function ($c) {
+    return new \Slim\Flash\Messages();
+};
