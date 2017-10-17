@@ -3,8 +3,9 @@
 namespace App\Controllers;
 
 use App\Controllers\UserController;
+use MartynBiz\Slim3Controller\Controller;
 
-class ApiController
+class ApiController extends Controller 
 {
 
 	public static function buildRoute($app)

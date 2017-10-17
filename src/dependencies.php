@@ -1,6 +1,8 @@
 <?php
 // DIC configuration
 
+use Illuminate\Database\Capsule\Manager;
+
 $container = $app->getContainer();
 
 // view renderer
@@ -18,14 +20,16 @@ $container['logger'] = function ($c) {
     return $logger;
 };
 
-//database
-$container['db'] = function ($c) {
-	$settings = $c->get('settings')['db'];
-	$capsule = new \Illuminate\Database\Capsule\Manager;
-	$capsule->addConnection($settings);
-
-	$capsule->setAsGlobal();
+    $settings = $container->get('settings')['db'];
+    $capsule = new Manager();
+    $capsule->addConnection($settings);
+    $capsule->setAsGlobal();
     $capsule->bootEloquent();
+
+
+//database
+$container['db'] = function ($c) use ($capsule) {
+
 
 	return $capsule;
 };

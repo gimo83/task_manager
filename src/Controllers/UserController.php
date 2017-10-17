@@ -2,37 +2,27 @@
 
 namespace App\Controllers;
 
+use MartynBiz\Slim3Controller\Controller;
+use App\Models\UserModel;
 
-class UserController
+class UserController extends Controller
 {
-
-	private $app;
-	private $container;
-
-
-	public function __construct($app)
-	{
-		$this->app = $app;
-		$this->container = $app->getContainer();
-	}
 
 	public static function buildRoute($app)
 	{
-		$app->get('', UserController::Class.':index');
-		$app->get('/', UserController::Class.':index');
-		$app->get('/index', UserController::Class.':index');
+		$controller = new UserController($app);
 
-		$container = $app->getContainer();
-		$container[UserController::Class] = new UserController($app);
+		$app->get('', $controller('getAll'));
 
 	}
 
-	public function index($request,$response,$args)
+	public function getAll()
 	{
 		//$this->container->logger->debug('test');
-
-		return $response->write('Hi');
-
+		
+		$users = UserModel::all();
+		
+		return $this->response->write($users);
 	} 
 	
 }
