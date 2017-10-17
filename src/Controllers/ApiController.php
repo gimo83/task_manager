@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Controllers\UserController;
 
 class ApiController
 {

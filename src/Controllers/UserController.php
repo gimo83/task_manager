@@ -18,6 +18,8 @@ class UserController
 
 	public static function buildRoute($app)
 	{
+		$app->get('', UserController::Class.':index');
+		$app->get('/', UserController::Class.':index');
 		$app->get('/index', UserController::Class.':index');
 
 		$container = $app->getContainer();

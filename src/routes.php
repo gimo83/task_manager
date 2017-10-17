@@ -3,7 +3,6 @@
 use Slim\Http\Request;
 use Slim\Http\Response;
 
-use App\Controllers\UserController;
 use App\Controllers\ApiController;
 // Routes
 /*
