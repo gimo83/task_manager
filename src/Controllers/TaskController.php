@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 
-class UserController
+class TaskController
 {
 
 	private $app;
@@ -18,19 +18,24 @@ class UserController
 
 	public static function buildRoute($app)
 	{
-		$app->get('/index', UserController::Class.':index');
+		$app->get('', TaskController::Class.':getAllTasks');
 
 		$container = $app->getContainer();
-		$container[UserController::Class] = new UserController($app);
+		$container[TaskController::Class] = new TaskController($app);
 
 	}
 
-	public function index($request,$response,$args)
+	public function getAllTasks($request,$response,$args)
 	{
 		//$this->container->logger->debug('test');
 
 		return $response->write('Hi');
 
 	} 
+
+	public function createTask($request,$response,$args)
+	{
+		return $response;
+	}
 	
 }

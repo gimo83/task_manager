@@ -4,6 +4,7 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 
 use App\Controllers\UserController;
+use App\Controllers\ApiController;
 // Routes
 /*
 $app->get('/[{name}]', function (Request $request, Response $response, array $args) {
@@ -14,6 +15,6 @@ $app->get('/[{name}]', function (Request $request, Response $response, array $ar
     return $this->renderer->render($response, 'index.phtml', $args);
 });
 */
-$app->group('/v1', function() use ($app){
-	new UserController($app);
+$app->group('/api', function() use ($app){
+	ApiController::buildRoute($app);
 });
