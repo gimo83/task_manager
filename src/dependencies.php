@@ -2,6 +2,8 @@
 // DIC configuration
 
 use Illuminate\Database\Capsule\Manager;
+use Illuminate\Events\Dispatcher;
+use Illuminate\Container\Container;
 
 $container = $app->getContainer();
 
@@ -23,6 +25,7 @@ $container['logger'] = function ($c) {
     $settings = $container->get('settings')['db'];
     $capsule = new Manager();
     $capsule->addConnection($settings);
+    $capsule->setEventDispatcher(new Dispatcher(new Container));
     $capsule->setAsGlobal();
     $capsule->bootEloquent();
 

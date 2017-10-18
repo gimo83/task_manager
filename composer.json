@@ -19,7 +19,8 @@
         "illuminate/database": "~5.1",
         "slim/flash": "^0.2.0",
         "robmorgan/phinx": "^0.9.1",
-        "martynbiz/slim3-controller": "^0.0.0"
+        "martynbiz/slim3-controller": "^0.0.0",
+        "illuminate/events": "^5.5"
     },
     "require-dev": {
         "phpunit/phpunit": ">=4.8 < 6.0"

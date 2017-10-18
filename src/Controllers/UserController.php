@@ -20,9 +20,17 @@ class UserController extends Controller
 	{
 		//$this->container->logger->debug('test');
 		
-		$users = UserModel::all();
-		
-		return $this->response->write($users);
+		//$users = $this->get('db')->table('user')->get();
+		$data = [
+			      "error"=>False,
+	              'message'=>'',
+	              "data"=>[]
+	          ];
+		$data['data'] = UserModel::all();
+
+
+
+		return $this->response->withJson($data);
 	} 
 	
 }
